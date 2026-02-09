@@ -21,11 +21,24 @@ resources = {
     "coffee_g": 75,
     "money_eur": 35.50
 }
+
 # ---------------------
 # Hilfsfunktionen
 # ---------------------
-def report():
-    pass
+def report() -> None:
+    """Gibt den aktuellen Status des Automaten aus."""
+    print("\n--- REPORT ---")
+    print(f"Wasser: {resources['water_ml']} ml")
+    print(f"Milch: {resources['milk_ml']} ml")
+    print(f"Kaffee: {resources['coffee_g']} g")
+    print(f"Geld: {euro_formater(amount=resources['money_eur'])}")
+
+def euro_formater(amount: float) -> str:
+    """Schöne Euro-Ausgabe"""
+    # 35.50 -> 35,50 €
+    # 24.2425 -> 24,24 €
+    return f"{amount:.2f}".replace(".", ",") + " €"
+
 
 
 # ---------------------
@@ -37,13 +50,15 @@ def main():
         print("Unsere Getränke: Espresso | Latte | Cappuccino\n")
         
         choice = input("Getränk auswählen: ")
+
         if choice == "off":
             print("Automat wird ausgeschaltet")
-            break
-        if choice == "report":
+
+        elif choice == "report":
             report()
             continue
-        if choice not in MENU:
+
+        elif choice not in MENU:
             print("Ungültige Auswahl. Bitte 'Espresso', 'Latte' oder 'Cappuccino' eingeben.\n")
 
 if __name__ == "__main__":
