@@ -21,6 +21,12 @@ resources = {
     "coffee_g": 75,
     "money_eur": 35.50
 }
+# ---------------------
+# Hilfsfunktionen
+# ---------------------
+def report():
+    pass
+
 
 # ---------------------
 # Hauptprogramm
@@ -31,8 +37,14 @@ def main():
         print("Unsere Getränke: Espresso | Latte | Cappuccino\n")
         
         choice = input("Getränk auswählen: ")
-        print(choice)
-
+        if choice == "off":
+            print("Automat wird ausgeschaltet")
+            break
+        if choice == "report":
+            report()
+            continue
+        if choice not in MENU:
+            print("Ungültige Auswahl. Bitte 'Espresso', 'Latte' oder 'Cappuccino' eingeben.\n")
 
 if __name__ == "__main__":
     main()
