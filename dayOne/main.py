@@ -52,8 +52,9 @@ def main():
         choice = input("Getränk auswählen: ")
 
         if choice == "off":
+            main() == False
             print("Automat wird ausgeschaltet")
-
+            
         elif choice == "report":
             report()
             continue
