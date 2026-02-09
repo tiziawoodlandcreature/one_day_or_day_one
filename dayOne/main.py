@@ -26,8 +26,12 @@ resources = {
 # Hauptprogramm
 # ---------------------
 def main():
-    print("=== Kaffeeautomat ===")
-    print("Unsere Getränke: Espresso | Latte | Cappuccino")
+    while True:
+        print("=== Kaffeeautomat ===")
+        print("Unsere Getränke: Espresso | Latte | Cappuccino\n")
+        
+        choice = input("Getränk auswählen: ")
+        print(choice)
 
 
 if __name__ == "__main__":
